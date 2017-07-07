@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no" />
+    <title>DEMO</title>
+    <link href="./assets/css/style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div id="app"></div>
+    <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+    <script src="./assets/vendors/jquery/jquery-3.0.0.min.js" type="text/javascript"></script>
+    <script src="./assets/vendors/moment/moment-with-locales.min.js" type="text/javascript"></script>
+    <!-- DB ENGINE START -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/3.2.0/firebase.js"></script> -->
+    <script src="./assets/vendors/firebase/firebase.js"></script>
+    <!-- DB ENGINE END -->
+    <!-- GAME ENGINE START -->
+    <script src="./assets/vendors/phaser/phaser.min.js"></script>
+    <script src="./assets/vendors/phaser/plugins/Shake.js"></script>
+    <!-- GAME ENGINE END -->
+    <script src="./assets/app.js"></script>
+    <script src="./assets/js/game.js"></script>
+    <script>if (window.module) module = window.module;</script>
+    <script>
+    // console = {};
+    // console.log = function (){};
+    // console.info = function (){};
+    // console.warn = function (){};
+    // console.error = function (){};
+    // ***** INIT GAME
+    (function() {
+    	console.log('- js.game init')
+      var game = new Phaser.Game(1920, 1080, Phaser.CANVAS, 'app');
+      game.state.add(Game.BOOT, Game.BootState);
+      game.state.add(Game.RELOAD, Game.ReloadState);
+      game.state.add(Game.INIT, Game.InitState);
+      game.state.add(Game.HOME, Game.HomeState);
+      game.state.add(Game.GAME, Game.GameState);
+      game.state.add(Game.PLAY, Game.PlayState);
+      game.state.add(Game.GIFT, Game.GiftState);
+      game.state.add(Game.OVER, Game.OverState);
+      game.state.start(Game.BOOT);
+    })();
+    </script>
+  </body>
+</html>
